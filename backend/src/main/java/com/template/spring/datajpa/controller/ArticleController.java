@@ -13,45 +13,45 @@ import java.util.List;
 @RestController
 @RequestMapping("/api")
 public class ArticleController {
-    @Autowired
-    ArticleRepository articleRepository;
+  @Autowired
+  ArticleRepository articleRepository;
 
-    @GetMapping("/articles")
-    public List<Article> getAllArticles(@RequestParam(required = false) String title) {
-        if (title == null) {
-            return articleRepository.findAll();
-        } else {
-            return articleRepository.findByTitleContaining(title);
-        }
+  @GetMapping("/articles")
+  public List<Article> getAllArticles(@RequestParam(required = false) String title) {
+    if (title == null) {
+      return articleRepository.findAll();
+    } else {
+      return articleRepository.findByTitleContaining(title);
     }
+  }
 
-    @GetMapping("/articles/{id}")
-    public Article getArticleById(@PathVariable("id") long id) {
-        return articleRepository.getOne(id);
-    }
+  @GetMapping("/articles/{id}")
+  public Article getArticleById(@PathVariable("id") long id) {
+    return articleRepository.getOne(id);
+  }
 
-    @PostMapping("/articles")
-    public Article createArticle(@RequestBody Article article) {
-        return articleRepository.save(article);
-    }
+  @PostMapping("/articles")
+  public Article createArticle(@RequestBody Article article) {
+    return articleRepository.save(article);
+  }
 
-    @PutMapping("/articles/{id}")
-    public Article updateArticle(@PathVariable("id") long id, @RequestBody Article update) {
-        Article article = articleRepository.getOne(id);
-        article.setTitle(update.getTitle());
-        article.setDescription(update.getDescription());
-        article.setPublished(update.isPublished());
-        return articleRepository.save(article);
-    }
+  @PutMapping("/articles/{id}")
+  public Article updateArticle(@PathVariable("id") long id, @RequestBody Article update) {
+    Article article = articleRepository.getOne(id);
+    article.setTitle(update.getTitle());
+    article.setDescription(update.getDescription());
+    article.setPublished(update.isPublished());
+    return articleRepository.save(article);
+  }
 
-    @DeleteMapping("/articles/{id}")
-    public ResponseEntity<HttpStatus> deleteArticle(@PathVariable("id") long id) {
-        articleRepository.deleteById(id);
-        return new ResponseEntity<>(HttpStatus.OK);
-    }
+  @DeleteMapping("/articles/{id}")
+  public ResponseEntity<HttpStatus> deleteArticle(@PathVariable("id") long id) {
+    articleRepository.deleteById(id);
+    return new ResponseEntity<>(HttpStatus.OK);
+  }
 
-    @GetMapping("/articles/published")
-    public List<Article> findByPublished() {
-        return articleRepository.findByPublished(true);
-    }
+  @GetMapping("/articles/published")
+  public List<Article> findByPublished() {
+    return articleRepository.findByPublished(true);
+  }
 }

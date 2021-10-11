@@ -14,17 +14,16 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Article {
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private long id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+  @Column(name = "title")
+  private String title;
 
-    @Column(name = "title")
-    private String title;
+  @Column(name = "description")
+  private String description;
 
-    @Column(name = "description")
-    private String description;
-
-    @Column(name = "published")
-    private boolean published;
+  @Column(name = "published")
+  private boolean published;
 }
