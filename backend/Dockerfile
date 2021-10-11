@@ -1,6 +1,6 @@
-FROM maven:3.8.2-jdk-8
+FROM maven:3.8.3-jdk-11
 
-WORKDIR /template
+WORKDIR /backend
 COPY . .
 RUN mvn clean install
 
