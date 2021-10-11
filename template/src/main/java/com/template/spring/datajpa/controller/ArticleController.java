@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import java.util.Optional;
 
 @CrossOrigin(origins = "${appName.allowedApi}")
 @RestController
@@ -26,7 +25,7 @@ public class ArticleController {
   @Autowired
   ArticleRepository articleRepository;
 
-  @GetMapping("/tutorials")
+  @GetMapping("/articles")
   public List<Article> getAllArticles(@RequestParam(required = false) String title) {
     if (title == null) {
       return articleRepository.findAll();
@@ -35,17 +34,17 @@ public class ArticleController {
     }
   }
 
-  @GetMapping("/tutorials/{id}")
+  @GetMapping("/articles/{id}")
   public Article getArticleById(@PathVariable("id") long id) {
     return articleRepository.getOne(id);
   }
 
-  @PostMapping("/tutorials")
+  @PostMapping("/articles")
   public Article createArticle(@RequestBody Article article) {
     return articleRepository.save(article);
   }
 
-  @PutMapping("/tutorials/{id}")
+  @PutMapping("/articles/{id}")
   public Article updateArticle(@PathVariable("id") long id, @RequestBody Article update) {
     Article article = articleRepository.getOne(id);
     article.setTitle(update.getTitle());
@@ -54,13 +53,13 @@ public class ArticleController {
     return articleRepository.save(article);
   }
 
-  @DeleteMapping("/tutorials/{id}")
-  public ResponseEntity<HttpStatus> deleteTutorial(@PathVariable("id") long id) {
+  @DeleteMapping("/articles/{id}")
+  public ResponseEntity<HttpStatus> deleteArticle(@PathVariable("id") long id) {
     articleRepository.deleteById(id);
     return new ResponseEntity<>(HttpStatus.OK);
   }
 
-  @GetMapping("/tutorials/published")
+  @GetMapping("/articles/published")
   public List<Article> findByPublished() {
     return articleRepository.findByPublished(true);
   }
