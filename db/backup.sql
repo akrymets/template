@@ -19,6 +19,8 @@
 -- Table structure for table `hibernate_sequence`
 --
 
+USE template;
+
 DROP TABLE IF EXISTS `hibernate_sequence`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
