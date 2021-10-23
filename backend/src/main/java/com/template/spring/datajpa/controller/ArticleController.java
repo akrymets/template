@@ -54,4 +54,9 @@ public class ArticleController {
   public List<Article> findByPublished() {
     return articleRepository.findByPublished(true);
   }
+
+  @GetMapping("test")
+  public String testController() {
+    return "test";
+  }
 }

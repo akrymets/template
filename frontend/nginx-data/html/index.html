@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Bootstrap Example</title>
     <meta charset="utf-8">
@@ -37,24 +38,45 @@
                 });
         });
     </script>
+    <style>
+        body {
+            background-color: lightblue;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        tr {
+            border-color: 3px solid black;
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-    <h2>Articles</h2>
-    <table class="table">
-        <thead>
-        <tr>
-            <th>id</th>
-            <th>title</th>
-            <th>description</th>
-            <th>published</th>
-        </tr>
-        </thead>
-        <tbody id="body">
-        </tbody>
-    </table>
-</div>
+    <div class="container">
+        <h2>Articles</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>title</th>
+                    <th>description</th>
+                    <th>published</th>
+                </tr>
+                <tr>
+                    <th>1</th>
+                    <th>New title</th>
+                    <th>New description</th>
+                    <th>New published</th>
+                </tr>
+            </thead>
+            <tbody id="body">
+            </tbody>
+        </table>
+    </div>
 
 </body>
+
 </html>
