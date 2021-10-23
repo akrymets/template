@@ -15,3 +15,6 @@ Stop and remove all containers:
 ```bash
 docker-compose down --rmi all
 ```
+
+
+this file is updated
