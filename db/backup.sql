@@ -51,6 +51,7 @@ CREATE TABLE `tutorials` (
   `description` varchar(255) DEFAULT NULL,
   `published` bit(1) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
+  `author` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
